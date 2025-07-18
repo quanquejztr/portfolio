@@ -78,7 +78,10 @@ function App() {
             <div className="border border-[1px] border-[#111] border-opacity-50 w-full mt-5"></div>
             <div className="font-roboto">MY CONTACT INFO</div>
             <div className="flex flex-col leading-[3.5rem] md:leading-[2.5rem] lg:leading-[3.5rem] tracking-tighter">
-              <a target="_blank" rel="noopener noreferrer"
+              <a
+                href="tel:+18135530268"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center rounded relative overflow-hidden transition-all duration-500 
                   before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:bg-transparent 
                   before:transition-all before:duration-500 hover:text-white hover:before:left-0 
@@ -89,6 +92,7 @@ function App() {
                 </span>
               </a>
               <a
+                href="mailto:stephenluong24@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center rounded relative overflow-hidden transition-all duration-500 

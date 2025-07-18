@@ -46,7 +46,7 @@ const MyProjects = () => {
               <div className="relative mx-4 mt-4 overflow-hidden text-white bg-white bg-clip-border rounded-xl h-40">
                 <img
                   src={nextleg} // Using the imported image
-                  alt="Nextleg Project Image"
+                  alt="Nextleg project"
                   className="object-cover w-full h-full rounded-lg" // Added object-cover for image scaling
                 />
               </div>
@@ -65,7 +65,6 @@ const MyProjects = () => {
                   with airline customer service.                
                 </p>
               </div>
-              
             </div>
           </SwiperSlide>
 
@@ -75,7 +74,7 @@ const MyProjects = () => {
               <div className="relative mx-4 mt-4 overflow-hidden text-white bg-white bg-clip-border rounded-xl h-40">
                 <img
                   src={jobtracker} // Using the imported image
-                  alt="Job Tracker Project Image"
+                  alt="Job Tracker project"
                   className="object-cover w-full h-full rounded-lg" // Added object-cover for image scaling
                 />
               </div>
@@ -89,7 +88,7 @@ const MyProjects = () => {
                   </p>
                 </div>
                 <p className="block font-sans text-sm antialiased font-normal leading-normal text-white opacity-75">
-                  Tired of manually tracking your job applications from Gmail? That’s why I developed this ultimate job applications tracker. This project will only 
+                  Tired of manually tracking your job applications from Gmail? That&#39;s why I developed this ultimate job applications tracker. This project will only 
                   run on your local machine, meaning your Gmail data will be stored on the local machine database.
                 </p>
               </div>
@@ -101,8 +100,8 @@ const MyProjects = () => {
             <div className="relative flex flex-col text-white bg-transparent shadow-xl bg-clip-border rounded-xl w-7xl mx-auto h-96">
               <div className="relative mx-4 mt-4 overflow-hidden text-white bg-white bg-clip-border rounded-xl h-40">
                 <img
-                  src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp=w=927&q=80"
-                  alt="Smart Watch Image"
+                  src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=927&q=80"
+                  alt="Smart Watch"
                   className="object-cover w-full h-full rounded-lg"
                 />
               </div>
@@ -127,8 +126,8 @@ const MyProjects = () => {
             <div className="relative flex flex-col text-white bg-transparent shadow-xl bg-clip-border rounded-xl w-7xl mx-auto h-96">
               <div className="relative mx-4 mt-4 overflow-hidden text-white bg-white bg-clip-border rounded-xl h-40">
                 <img
-                  src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp=w=927&q=80"
-                  alt="Smart Watch Image"
+                  src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=927&q=80"
+                  alt="Smart Watch"
                   className="object-cover w-full h-full rounded-lg"
                 />
               </div>
