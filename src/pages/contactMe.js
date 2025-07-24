@@ -39,8 +39,8 @@ const ContactMe = () => {
     return(
     <>
         <div className="h-auto w-full flex flex-col items-center mb-5">
-            <span className="text-white font-dm-sans text-xl">
-                <span className="text-white hover:text-black text-6xl hover:bg-white font-archivo translate-x-full transition-colors duration-300 ">
+            <span className="text-white font-dm-sans text-base sm:text-lg md:text-xl">
+                <span className="text-white hover:text-black text-2xl sm:text-4xl md:text-6xl hover:bg-white font-archivo translate-x-full transition-colors duration-300 ">
                 CONNECT WITH ME
                 </span>
             </span>
@@ -48,18 +48,18 @@ const ContactMe = () => {
         <div id="ask" class="relative bg-[#F2F5F3] h-lvh sm:h-[40vh] w-full flex flex-col items-center rounded-lg shadow-2xl z-20 hover:translate-y-[-0.25rem] hover:translate-x-[-0.25rem] hover:shadow-3xl transition-all duration-500 ease-in-out">
             <div class="h-[90%] md:h-[45%] w-[90%] flex flex-col items-center mt-[3rem] mx-[2rem]">
                 <div class="flex flex-row gap-[0.1rem] w-[80%] relative justify-center">
-                    <div class="uppercase text-[0.7rem] font-roboto text-center">
+                    <div className="uppercase text-xs sm:text-sm md:text-base font-roboto text-center">
                         
                         Have something on your mind? Write it down and send to me, I'll read it and reply asap
                     </div>
                 </div>
-                <textarea id="message" rows="4" class="bg-transparent p-2.5 w-[65%] h-[70%] text-[0.6rem] text-[#111] focus:outline-none text-center font-roboto tracking-[1px] resize-none " placeholder="Write your thoughts here and send it to me. I would love to hear your thoughts!"></textarea>
+                <textarea id="message" rows="4" className="bg-transparent p-2.5 w-[65%] h-[70%] text-xs sm:text-sm md:text-base text-[#111] focus:outline-none text-center font-roboto tracking-[1px] resize-none " placeholder="Write your thoughts here and send it to me. I would love to hear your thoughts!"></textarea>
             </div>
             <textarea
                 id="email"
                 cols="24"
                 rows="1"
-                className="absolute bottom-[1rem] right-[1rem] w-[10rem] border border-[1px] border-[#111] border-opacity-20 p-2 text-[#111] text-[0.7rem] rounded-lg focus:outline-none text-center resize-none"
+                className="absolute bottom-[1rem] right-[1rem] w-[10rem] border border-[1px] border-[#111] border-opacity-20 p-2 text-[#111] text-xs sm:text-sm md:text-base rounded-lg focus:outline-none text-center resize-none"
                 placeholder="your name / email"
                 value={senderInfo}
                 onChange={(e) => setSenderInfo(e.target.value)}

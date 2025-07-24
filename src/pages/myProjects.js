@@ -10,10 +10,10 @@ const MyProjects = () => {
   return (
     <>
     <div className="h-auto w-full flex flex-col items-center mt-10">
-      <span className="text-white font-dm-sans text-xl">
-        <span className="text-white hover:text-black text-6xl hover:bg-white font-archivo translate-x-full transition-colors duration-300">
+      <span className="text-white font-dm-sans text-base sm:text-lg md:text-xl">
+        <span className="text-white hover:text-black text-2xl sm:text-4xl md:text-6xl hover:bg-white font-archivo translate-x-full transition-colors duration-300">
           PROJECTS
-          <span className="text-white font-dm-sans hover:text-black text-xl">swipe to see more</span>
+          <span className="text-white font-dm-sans hover:text-black text-base sm:text-lg md:text-xl">swipe to see more</span>
         </span>
       </span>
       
@@ -52,7 +52,7 @@ const MyProjects = () => {
               </div>
               <div className="p-6">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="block font-sans text-base antialiased text-2xl font-bold leading-relaxed text-white">
+                  <p className="block font-sans text-base sm:text-lg md:text-2xl antialiased text-2xl font-bold leading-relaxed text-white">
                     NextLeg
                   </p>
                   <p className="block font-sans text-base antialiased font-medium leading-relaxed text-white">
@@ -80,7 +80,7 @@ const MyProjects = () => {
               </div>
               <div className="p-6">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="block font-sans text-base antialiased text-2xl font-bold leading-relaxed text-blue-gray-900">
+                  <p className="block font-sans text-base sm:text-lg md:text-2xl antialiased text-2xl font-bold leading-relaxed text-blue-gray-900">
                     JobTracker
                   </p>
                   <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
@@ -107,7 +107,7 @@ const MyProjects = () => {
               </div>
               <div className="p-6">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="block font-sans text-base antialiased text-2xl font-bold leading-relaxed text-blue-gray-900">
+                  <p className="block font-sans text-base sm:text-lg md:text-2xl antialiased text-2xl font-bold leading-relaxed text-blue-gray-900">
                     DevShield
                   </p>
                   <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
@@ -133,7 +133,7 @@ const MyProjects = () => {
               </div>
               <div className="p-6">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="block font-sans text-base antialiased text-2xl font-bold leading-relaxed text-blue-gray-900">
+                  <p className="block font-sans text-base sm:text-lg md:text-2xl antialiased text-2xl font-bold leading-relaxed text-blue-gray-900">
                     Diminished JavaCompiler
                   </p>
                   <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
