@@ -40,7 +40,7 @@ function homePage() {
               Hi there, I am
             </h1>
             <span className="inline-flex flex-col overflow-hidden mt-4 h-[2.5rem] sm:h-[3.5rem] md:h-[4.5rem] lg:h-[5.5rem]">
-              <ul className="block animate-scroll-text text-center leading-[2.5rem] sm:leading-[3.5rem] md:leading-[4.5rem] lg:leading-[5.5rem] [&_li]:block text-2xl sm:text-4xl md:text-6xl font-archivo text-black">
+              <ul className="block animate-scroll-text text-center leading-[2.5rem] sm:leading-[3.5rem] md:leading-[4.5rem] lg:leading-[5.5rem] [&_li]:block text-2xl sm:text-4xl md:text-5xl font-archivo text-black">
                 <li>Cuong Luong</li>
                 <li>a senior at University of South Florida</li>
                 <li>a software engineer</li>

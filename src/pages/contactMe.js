@@ -40,7 +40,7 @@ const ContactMe = () => {
     <>
         <div className="h-auto w-full flex flex-col items-center mb-5">
             <span className="text-white font-dm-sans text-base sm:text-lg md:text-xl">
-                <span className="text-white hover:text-black text-2xl sm:text-4xl md:text-6xl hover:bg-white font-archivo translate-x-full transition-colors duration-300 ">
+                <span className="text-white hover:text-black text-2xl sm:text-4xl md:text-5xl hover:bg-white font-archivo translate-x-full transition-colors duration-300 ">
                 CONNECT WITH ME
                 </span>
             </span>
