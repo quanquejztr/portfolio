@@ -24,7 +24,7 @@ function homePage() {
             </button>
             <button className="relative overflow-hidden group px-11 py-1 text-base sm:text-lg md:text-xl font-dm-sans transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300">
               <span className="relative z-10 text-black group-hover:text-white duration-300">
-                <a href="https://drive.google.com/file/d/1RnPdUd48ZAutBCZrIbyPXSRkc8MSJY8p/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="block w-full h-full">Resumes</a>
+                <a href="https://drive.google.com/file/d/1OvTK62QopxhyjzurWcMPOFYy_je5xp0U/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="block w-full h-full">Resumes</a>
               </span>
               <span className="absolute inset-0 bg-darkBlue transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></span>
             </button>
