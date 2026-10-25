@@ -233,3 +233,22 @@
 .hero-nav { width: var(--portfolio-width); margin-inline: auto; padding-inline: 0; gap: .25rem clamp(.25rem, 2vw, 2rem); }
 .hero-nav button { padding: .65rem clamp(.5rem, 1.2vw, 1.25rem); white-space: nowrap; }
 @media (max-width: 640px) { .hero-nav { justify-content: center; column-gap: .25rem; } .hero-nav button { padding: .6rem .65rem; } }
+
+/* Place the altar under the About Me title, alongside the biography on desktop. */
+@media (min-width: 801px) {
+  .portfolio-body .about-section:has(.wish-scene) { margin-bottom: 0; }
+  .about-section > .wish-altar-slot { top: calc(var(--portfolio-title) * 2.1 + 2rem); width: calc(33.333333% - var(--about-gap) * .333333); }
+  .wish-altar-slot .wish-scene { left: 0; right: auto; }
+  .wish-altar-slot .wish-message { top: calc(100% + .75rem); left: 0; right: auto; }
+  .wish-altar-slot .wish-confirmation::after { left: 1rem; right: auto; bottom: auto; top: -7px; transform: rotate(180deg); }
+  .about-section.has-preview > .wish-altar-slot { top: calc(var(--portfolio-title) * 1.05 + 1rem); }
+  .portfolio-body .about-section.has-preview:has(.wish-scene) { padding-top: calc(var(--portfolio-title) * 1.05 + 13rem); }
+}
+@media (max-width: 800px) {
+  .portfolio-body .about-section:has(.wish-scene) { margin-bottom: 0; }
+  .about-section > .wish-altar-slot { top: calc(var(--portfolio-title) * 1.05 + 1.25rem); }
+  .wish-altar-slot .wish-scene { left: 0; right: auto; }
+  .wish-altar-slot .wish-message { left: calc(100% + .6rem); right: auto; }
+  .wish-altar-slot .wish-confirmation::after { left: -7px; right: auto; transform: scaleX(-1); }
+  .portfolio-body .about-section:has(.wish-scene) .about-content { margin-top: 9rem; }
+}

@@ -43,7 +43,15 @@ export default function FutureCompany() {
   }, []);
 
   useEffect(() => {
-    if (wish?.phase === 'selected') dropRef.current?.focus({ preventScroll: true });
+    if (wish?.phase !== 'selected' && wish?.phase !== 'dragging') return;
+    if (wish.phase === 'selected') dropRef.current?.focus({ preventScroll: true });
+    const rect = dropRef.current?.getBoundingClientRect();
+    if (rect && (rect.top < 24 || rect.bottom > window.innerHeight - 24)) {
+      dropRef.current?.scrollIntoView?.({
+        block: 'center',
+        behavior: window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+      });
+    }
   }, [wish]);
 
   useEffect(() => {
@@ -127,6 +135,20 @@ export default function FutureCompany() {
     setWish(null);
   };
 
+  // A browser may release element pointer capture when the source scrolls out of view.
+  // Keep following this gesture at window level until release, cancellation, or blur.
+  useEffect(() => {
+    if (!dragging) return undefined;
+    window.addEventListener('pointermove', moveDrag);
+    window.addEventListener('pointerup', finishDrag);
+    window.addEventListener('pointercancel', cancelDrag);
+    return () => {
+      window.removeEventListener('pointermove', moveDrag);
+      window.removeEventListener('pointerup', finishDrag);
+      window.removeEventListener('pointercancel', cancelDrag);
+    };
+  });
+
   return (
     <>
       <span className={`future-company ${active ? 'is-active' : ''} ${drag ? 'is-dragging' : ''}`}
@@ -152,13 +174,12 @@ export default function FutureCompany() {
                 key={company.name} style={{ '--entrance-index': index }} title={`Drag ${company.name} to make a wish`}
                 aria-label={`Make a wish for ${company.name}`} aria-describedby="company-wish-instructions"
                 tabIndex={active ? 0 : -1}
-                onPointerDown={event => beginDrag(event, company)} onPointerMove={moveDrag}
-                onPointerUp={finishDrag} onPointerCancel={cancelDrag} onLostPointerCapture={cancelDrag}
+                onPointerDown={event => beginDrag(event, company)}
                 onClick={event => {
                   // Pointer gestures are handled above; this path is for keyboard/assistive activation.
                   if (event.detail === 0) {
                     sourceRef.current = event.currentTarget;
-                                    setWish({ company, phase: 'selected' });
+                    setWish({ company, phase: 'selected' });
                   }
                 }}>
                 <img src={company.image} alt="" draggable="false" />

@@ -102,3 +102,53 @@ test('a new company wish gets its own full four-second confirmation', () => {
   act(() => jest.advanceTimersByTime(3000));
   expect(screen.getByRole('region', { name: 'Company wish altar' })).toHaveClass('is-leaving');
 });
+
+
+test('choosing a company on mobile brings the below-bio altar into view', () => {
+  const previousMatchMedia = window.matchMedia;
+  const previousScroll = HTMLElement.prototype.scrollIntoView;
+  const scroll = jest.fn();
+  window.matchMedia = jest.fn(query => ({ matches: query === '(max-width: 800px)' }));
+  HTMLElement.prototype.scrollIntoView = scroll;
+  try {
+    const apple = chooseApple();
+    fireEvent.click(apple, { detail: 0 });
+    expect(screen.getByRole('button', { name: 'Place Apple on the altar' })).toHaveFocus();
+  } finally {
+    window.matchMedia = previousMatchMedia;
+    HTMLElement.prototype.scrollIntoView = previousScroll;
+  }
+});
+
+
+test('grabbing a company on desktop reveals the below-bio drop target without losing the drag', () => {
+  const previousMatchMedia = window.matchMedia;
+  const previousScroll = HTMLElement.prototype.scrollIntoView;
+  const scroll = jest.fn();
+  window.matchMedia = jest.fn(() => ({ matches: false }));
+  HTMLElement.prototype.scrollIntoView = scroll;
+  try {
+    const apple = chooseApple();
+    rectSpy.mockImplementation(() => ({ left: 500, right: 740, top: 900, bottom: 1140, width: 240, height: 240 }));
+    fireEvent.pointerDown(apple, { ...pointer, clientX: 100, clientY: 100 });
+    expect(scroll).toHaveBeenCalledWith({ block: 'center', behavior: 'smooth' });
+    rectSpy.mockImplementation(() => ({ left: 500, right: 740, top: 300, bottom: 540, width: 240, height: 240 }));
+    fireEvent.pointerMove(apple, { ...pointer, clientX: 620, clientY: 410 });
+    fireEvent.pointerUp(apple, { ...pointer, clientX: 620, clientY: 410 });
+    expect(screen.getByRole('status')).toHaveTextContent('Your wish has been submitted');
+  } finally {
+    window.matchMedia = previousMatchMedia;
+    HTMLElement.prototype.scrollIntoView = previousScroll;
+  }
+});
+
+
+test('a drag can finish over the altar after its source loses pointer capture during scrolling', () => {
+  const apple = chooseApple();
+  fireEvent.pointerDown(apple, { ...pointer, clientX: 100, clientY: 100 });
+  fireEvent.lostPointerCapture(apple, pointer);
+  expect(screen.getByRole('region', { name: 'Company wish altar' })).toBeInTheDocument();
+  fireEvent.pointerMove(window, { ...pointer, clientX: 620, clientY: 410 });
+  fireEvent.pointerUp(window, { ...pointer, clientX: 620, clientY: 410 });
+  expect(screen.getByRole('status')).toHaveTextContent('Your wish has been submitted');
+});
