@@ -47,7 +47,7 @@ const experienceDetails = {
   'Apple Inc': {
     role: 'Software Engineering Intern',
     team: 'Streaming Media Ecosystem Tech',
-    description: 'At Apple, I built an agentic root-cause analysis system that diagnoses failed PR checks and proposes fixes automatically, saving engineers from manually digging through logs and code with a coworker. I also built a repository-agnostic FastMCP server that brings live merge-gate status into coding agents, including a custom OAuth proxy with dual PKCE flows that keeps each developer’s credentials and data isolated.',
+    description: 'At Apple, I built an agentic root-cause analysis system that diagnoses failed PR checks and proposes fixes automatically, saving engineers from manually digging through logs and code with a coworker. I also built a repository-agnostic FastMCP server that brings live merge-gate status into coding agents.',
     technologies: 'Python, Airflow, FastMCP, Pydantic AI, Kubernetes, Bitbucket API.',
   },
 };
