@@ -139,8 +139,8 @@ export default function BoardingPasses() {
         <section className="future-flights-panel" aria-labelledby="future-trips-heading">
           <h3 id="future-trips-heading" className="pending-passes-heading">Boarding passes pending...</h3>
           <ul className="future-trip-list">
-            {['Washington DC', 'New York', 'San Francisco', 'Chicago', 'Los Angeles'].map(city => (
-              <li key={city}><span>{city}</span><span className="future-trip-status">ticket purchasing...</span></li>
+            {['Washington DC', 'New York', 'Chicago', 'San Francisco', 'Los Angeles'].map(city => (
+              <li key={city}><span>{city}</span><span className="future-trip-status">{['Washington DC', 'New York'].includes(city) ? 'booked' : 'ticket purchasing...'}</span></li>
             ))}
           </ul>
         </section>

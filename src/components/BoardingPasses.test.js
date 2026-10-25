@@ -34,7 +34,8 @@ test('choosing a Turkish pass highlights its actual route on the map', () => {
   expect(within(futureTrips).getByText('San Francisco')).toBeVisible();
   expect(within(futureTrips).getByText('Chicago')).toBeVisible();
   expect(within(futureTrips).getByText('Los Angeles')).toBeVisible();
-  expect(within(futureTrips).getAllByText('ticket purchasing...')).toHaveLength(5);
+  expect(within(futureTrips).getAllByText('ticket purchasing...')).toHaveLength(3);
+  expect(within(futureTrips).getAllByText('booked')).toHaveLength(2);
   const mapPanel = rightColumn.firstElementChild;
   expect(mapPanel.querySelector('.flight-map-selection')).toBeNull();
   const details = mapPanel.querySelector('.flight-map-summary');

@@ -16,14 +16,24 @@ export function originalFieldValue(field) {
   if (Object.keys(options).length === 1) return value;
   return new Intl.DateTimeFormat('en-US', options).format(wallClock);
 }
+// Keep issuer data intact, but omit booking and loyalty identifiers from display.
+function visibleFields(fields = []) {
+  return fields.filter(field => {
+    const key = String(field.key || '').toLowerCase();
+    const label = text(field.label).toLowerCase();
+    return !['filekey', 'recloc', 'confirmation', 'confirmationcode', 'confirmationnumber', 'ffprogram', 'ffn', 'fqtv', 'frequentflyernumber', 'mileageplusnumber'].includes(key)
+      && !/booking reference|confirmation|frequent flyer|membership|skymiles|rapid rewards|mileageplus/.test(label);
+  });
+}
 function Field({ field }) {
   return <div className="original-wallet-field" style={{ textAlign: field.textAlignment === 'PKTextAlignmentRight' ? 'right' : field.textAlignment === 'PKTextAlignmentCenter' ? 'center' : undefined }}>
     {field.label && <span>{text(field.label)}</span>}<strong>{originalFieldValue(field)}</strong>
   </div>;
 }
 function FieldRow({ fields, className = '' }) {
-  if (!fields?.length) return null;
-  return <div className={`original-wallet-fields ${className}`}>{fields.map((field, index) => <Field field={field} key={`${field.key || 'field'}-${index}`} />)}</div>;
+  const displayedFields = visibleFields(fields);
+  if (!displayedFields.length) return null;
+  return <div className={`original-wallet-fields ${className}`}>{displayedFields.map((field, index) => <Field field={field} key={`${field.key || 'field'}-${index}`} />)}</div>;
 }
 export default function OriginalBoardingPass({ flight, showBack = false, decorative = false }) {
   if (flight.paperImage) return <div className="original-paper-pass" aria-hidden={decorative || undefined}>
@@ -33,6 +43,7 @@ export default function OriginalBoardingPass({ flight, showBack = false, decorat
   </div>;
   const pass = flight.originalWallet;
   if (!pass) return null;
+  const backFields = visibleFields(pass.backFields);
   return <div data-ui="boarding-pass" className="original-wallet-pass" aria-hidden={decorative || undefined} style={{ '--original-background': pass.backgroundColor, '--original-text': pass.foregroundColor, '--original-label': pass.labelColor }}>
     <div className="original-wallet-heading">
       <div className="original-wallet-logo">{pass.logo && <img src={pass.logo} alt={flight.airline} />}{pass.logoText && <span>{pass.logoText}</span>}</div>
@@ -42,8 +53,8 @@ export default function OriginalBoardingPass({ flight, showBack = false, decorat
     <FieldRow fields={pass.secondaryFields} />
     <FieldRow fields={pass.auxiliaryFields} />
     {pass.footer && <img src={pass.footer} alt="" className="original-wallet-footer-art" />}
-    {showBack && pass.backFields?.length > 0 && <details className="original-wallet-back"><summary>Pass details</summary>
-      <dl>{pass.backFields.map((field, index) => <div key={`${field.key || 'back'}-${index}`}><dt>{text(field.label)}</dt><dd>{originalFieldValue(field)}</dd></div>)}</dl>
+    {showBack && backFields.length > 0 && <details className="original-wallet-back"><summary>Pass details</summary>
+      <dl>{backFields.map((field, index) => <div key={`${field.key || 'back'}-${index}`}><dt>{text(field.label)}</dt><dd>{originalFieldValue(field)}</dd></div>)}</dl>
     </details>}
   </div>;
 }
