@@ -4,6 +4,7 @@ import AppleLogo from '../img/company-logos/apple.svg';
 import AircraftViewer from '../components/AircraftViewer';
 import FutureCompany from '../components/FutureCompany';
 import { aircraftModels } from '../components/aircraftModels';
+import { useDisplayName } from '../components/DisplayName';
 
 const teamPhotos = [
   { src: '/photos/apple-team/01.jpg', caption: 'Summer with the team', alt: 'A group photo with fellow Apple interns and colleagues outdoors' },
@@ -25,6 +26,7 @@ function WordSwap({ children, label, className = '' }) {
 }
 
 const AboutMe = () => {
+  const { firstName } = useDisplayName();
   const [showingPreview, setShowingPreview] = useState(false);
   const [previewKind, setPreviewKind] = useState('aircraft');
   const [photoIndex, setPhotoIndex] = useState(0);
@@ -79,7 +81,7 @@ const AboutMe = () => {
       <div className={`about-content ${showingPreview ? 'has-aircraft' : ''}`}>
         <div className="about-copy font-dm-sans">
           <p>
-            Hi there, I am Cuong and almost a software engineer @ <FutureCompany />. I spend time coding, playing flight simulator (RFS, my fav aircraft is the{' '}
+            Hi there, I am {firstName} and almost a software engineer @ <FutureCompany />. I spend time coding, playing flight simulator (RFS, my fav aircraft is the{' '}
             {aircraftTrigger(0)}
             ), worrying about my future, and traveling whenever I have money. I am currently pursuing my bachelor’s degree in Computer Science at the{' '}
             <WordSwap label="University of South Florida" className="usf-swap">
@@ -111,7 +113,8 @@ const AboutMe = () => {
             </WordSwap>
             , and moved to the United States for college. Having access to computers from a young age gave me room to explore, figure things out independently, and develop a love for building things with technology.
           </p>
-          <p>Stay hungry, stay foolish</p>
+          <p className="about-job-search">I am graduating soon and is actively looking for my first full-time role as a software engineer! If you know any new grad or entry-level opportunities, I'd love to hear from you. Always happy to connect and chat!</p>
+          <p>Lastly - Stay hungry, stay foolish</p>
         </div>
         <aside id="about-preview" className="aircraft-preview" aria-hidden={!showingPreview} inert={!showingPreview}
           aria-label={previewKind === 'team' ? 'Apple team photo gallery' : 'Favorite aircraft gallery'}

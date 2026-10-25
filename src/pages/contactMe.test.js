@@ -9,7 +9,7 @@ function fillForm() {
   fireEvent.change(screen.getByLabelText('Your name'), { target: { value: 'Alex & Sam' } });
   fireEvent.change(screen.getByLabelText('Your email'), { target: { value: 'alex@example.com' } });
   fireEvent.change(screen.getByLabelText('Your message'), { target: { value: 'Hello Cuong' } });
-  return screen.getByRole('form', { name: 'Send Cuong a message' });
+  return screen.getByRole('form', { name: 'Send Stephen a message' });
 }
 
 test('direct submission disables repeated sends and clears fields only after acceptance', async () => {
@@ -25,7 +25,7 @@ test('direct submission disables repeated sends and clears fields only after acc
   await act(async () => finish({ preview: false }));
   expect(screen.getByRole('status')).toHaveTextContent('your message has been submitted');
   expect(screen.getByLabelText('Your message')).toHaveValue('');
-  expect(screen.getByRole('button', { name: 'send to Cuong' })).toBeEnabled();
+  expect(screen.getByRole('button', { name: 'send to Stephen' })).toBeEnabled();
 });
 
 test('failed submissions keep the message and offer a retry', async () => {
@@ -34,8 +34,8 @@ test('failed submissions keep the message and offer a retry', async () => {
   fireEvent.submit(fillForm());
   await waitFor(() => expect(screen.getByRole('alert')).toHaveTextContent('couldn’t be sent'));
   expect(screen.getByLabelText('Your message')).toHaveValue('Hello Cuong');
-  expect(screen.getByRole('button', { name: 'send to Cuong' })).toBeEnabled();
-  expect(screen.getByRole('link', { name: /Email Cuong/ })).toHaveAttribute('href', 'mailto:stephenluong24@gmail.com');
+  expect(screen.getByRole('button', { name: 'send to Stephen' })).toBeEnabled();
+  expect(screen.getByRole('link', { name: /Email Stephen/ })).toHaveAttribute('href', 'mailto:stephenluong24@gmail.com');
 });
 
 test('local previews never claim the message was submitted', async () => {

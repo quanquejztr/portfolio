@@ -9,8 +9,10 @@ import ContactMe from './pages/contactMe.js';
 import UpWave from './img/wave-haikei-3.svg';
 import usePortfolioMotion from './components/usePortfolioMotion';
 import './redesign.css';
+import { DisplayNameProvider, useDisplayName } from './components/DisplayName';
 
-function App() {
+function Portfolio() {
+  const { fullName } = useDisplayName();
   usePortfolioMotion();
   return (
     <>
@@ -32,11 +34,11 @@ function App() {
         <ContactMe />
       </div>
       <footer className="portfolio-footer">
-        <span>Cuong Luong</span>
+        <span>{fullName}</span>
         <span>© {new Date().getFullYear()}</span>
       </footer>
     </>
   );
 }
 
-export default App;
+export default function App() { return <DisplayNameProvider><Portfolio /></DisplayNameProvider>; }

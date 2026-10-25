@@ -1,5 +1,10 @@
+import { useState } from 'react';
 import ScrollWave from '../components/ScrollWave';
-function homePage() {
+import NameWordmark from '../components/NameWordmark';
+import { useDisplayName } from '../components/DisplayName';
+function HomePage() {
+  const { fullName } = useDisplayName();
+  const [menuOpen, setMenuOpen] = useState(false);
   const scrollToSection = (id) => {
         const element = document.getElementById(id);
         if (element) {
@@ -9,32 +14,38 @@ function homePage() {
     return (
       <>
         <div className="hero-screen bg-cover bg-center flex flex-col items-top">
-          <nav className="hero-nav flex flex-row items-center justify-center mt-8" aria-label="Main navigation">
-            {[
-              ['about', 'About'],
-              ['timeline', 'Education & Experiences'],
-              ['tech-stack', 'Tech Stack'],
-              ['projects', 'Projects'],
-              ['boarding-passes', 'Travelling'],
-              ['contact', 'Contact'],
-            ].map(([id, label], index) => (
-              <button key={id} type="button" className="relative overflow-hidden group py-1 text-base sm:text-lg md:text-xl font-dm-sans transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300" onClick={() => scrollToSection(id)}>
-                <span className="relative z-10 text-black group-hover:text-white duration-300">{label}</span>
-                <span aria-hidden="true" className={`absolute inset-0 bg-darkBlue transform ${index % 2 ? '-translate-y-full' : 'translate-y-full'} group-hover:translate-y-0 transition-transform duration-300 ease-in-out`}></span>
-              </button>
-            ))}
-          </nav>
+          <header className="hero-header">
+            <nav id="portfolio-navigation" className={`hero-nav${menuOpen ? ' is-open' : ''}`} aria-label="Main navigation">
+              <div className="hero-nav-group hero-nav-left">
+                {[
+                  ['about', 'About'],
+                  ['timeline', 'Education & Experiences'],
+                  ['tech-stack', 'Tech Stack'],
+                ].map(([id, label], index) => <button key={id} type="button" className="hero-nav-link" onClick={() => { setMenuOpen(false); scrollToSection(id); }}><span className="hero-nav-label">{label}</span><span aria-hidden="true" className={`hero-nav-fill${index % 2 ? ' from-top' : ''}`} /></button>)}
+              </div>
+              <div className="hero-nav-group hero-nav-right">
+                {[
+                  ['projects', 'Projects'],
+                  ['boarding-passes', 'Travelling'],
+                  ['contact', 'Contact'],
+                ].map(([id, label], index) => <button key={id} type="button" className="hero-nav-link" onClick={() => { setMenuOpen(false); scrollToSection(id); }}><span className="hero-nav-label">{label}</span><span aria-hidden="true" className={`hero-nav-fill${index % 2 ? ' from-top' : ''}`} /></button>)}
+              </div>
+            </nav>
+            <NameWordmark />
+            <button type="button" className="hero-menu-toggle" aria-controls="portfolio-navigation" aria-expanded={menuOpen} onClick={() => setMenuOpen(open => !open)}>{menuOpen ? 'Close' : 'Menu'}<span aria-hidden="true">{menuOpen ? '−' : '+'}</span></button>
+          </header>
           <div className="hero-intro flex flex-col items-center justify-center">
             <h1 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-dm-sans text-black">
               Hi there, I am
             </h1>
             <span className="intro-rotator">
               <ul className="intro-rotator-list text-center font-archivo text-black">
-                <li>Cuong Luong</li>
+                <li><span className="intro-portrait"><img src="/photos/intro-portrait.png" alt={`${fullName} in the mountains`} width="2048" height="1536" /></span></li>
+                <li>{fullName}</li>
                 <li>an alumni at University of South Florida</li>
                 <li>a software engineer</li>
                 <li>a backend engineer</li>
-                <li aria-hidden="true">Cuong Luong</li>
+                <li aria-hidden="true"><span className="intro-portrait"><img src="/photos/intro-portrait.png" alt="" width="2048" height="1536" /></span></li>
               </ul>
             </span>
           </div>
@@ -44,4 +55,4 @@ function homePage() {
     );
   }
 
-export default homePage
+export default HomePage

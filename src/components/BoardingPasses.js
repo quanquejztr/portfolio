@@ -100,7 +100,7 @@ export default function BoardingPasses() {
   }, [zoom, isOpen]);
 
   return <section id="boarding-passes" className="flight-archive-section" aria-labelledby="boarding-passes-title">
-    <div className="flight-archive-title"><h2 id="boarding-passes-title" className="font-archivo">PLACES I HAVE BEEN</h2></div>
+    <div className="flight-archive-title"><h2 id="boarding-passes-title" className="font-archivo">PLACES I HAVE BEEN</h2><span className="flight-archive-hint" aria-hidden="true">(real boarding passes included)</span></div>
     <div className="flight-archive-split">
       <div className="flight-pass-panel">
         <div className="flight-pass-toolbar">
@@ -137,7 +137,7 @@ export default function BoardingPasses() {
       <div className="flight-right-column">
         <FlightMap flights={mapFlights} selected={selected} />
         <section className="future-flights-panel" aria-labelledby="future-trips-heading">
-          <h3 id="future-trips-heading">Future trips</h3>
+          <h3 id="future-trips-heading" className="pending-passes-heading">Boarding passes pending...</h3>
           <ul className="future-trip-list">
             {['Washington DC', 'New York', 'San Francisco', 'Chicago', 'Los Angeles'].map(city => (
               <li key={city}><span>{city}</span><span className="future-trip-status">ticket purchasing...</span></li>

@@ -23,10 +23,10 @@ test('choosing a Turkish pass highlights its actual route on the map', () => {
   expect(screen.getByRole('img', { name: 'World map highlighting MIA to IST' })).toBeInTheDocument();
   expect(screen.getByTestId('selected-flight-route')).toHaveAttribute('data-origin', 'MIA');
   expect(screen.getByTestId('selected-flight-route')).toHaveAttribute('data-destination', 'IST');
-  const rightColumn = screen.getByRole('heading', { name: 'Future trips' }).closest('.flight-right-column');
+  const rightColumn = screen.getByRole('heading', { name: 'Boarding passes pending...' }).closest('.flight-right-column');
   expect(rightColumn.children).toHaveLength(2);
   expect(rightColumn.firstElementChild).toHaveClass('flight-map-panel');
-  expect(rightColumn.lastElementChild).toHaveAccessibleName('Future trips');
+  expect(rightColumn.lastElementChild).toHaveAccessibleName('Boarding passes pending...');
   const futureTrips = rightColumn.lastElementChild;
   expect(within(futureTrips).getAllByRole('listitem')).toHaveLength(5);
   expect(within(futureTrips).getByText('Washington DC')).toBeVisible();
