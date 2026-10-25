@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Temporary source checkout used to capture the project screenshot
+/work/redesign/airside-machine-source/
