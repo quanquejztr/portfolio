@@ -1,0 +1,281 @@
+[
+  {
+    "id": "history-2015-07-22-cz368-sgn-can",
+    "sortDate": "2015-07-22",
+    "flight": "CZ368",
+    "airlineCode": "CZ",
+    "origin": "SGN",
+    "destination": "CAN",
+    "source": "user-flight-log"
+  },
+  {
+    "id": "history-2015-07-22-zh1352-can-pek",
+    "sortDate": "2015-07-22",
+    "flight": "ZH1352",
+    "airlineCode": "ZH",
+    "origin": "CAN",
+    "destination": "PEK",
+    "source": "user-flight-log"
+  },
+  {
+    "id": "history-2015-07-26-cz9299-pek-pvg",
+    "sortDate": "2015-07-26",
+    "flight": "CZ9299",
+    "airlineCode": "CZ",
+    "origin": "PEK",
+    "destination": "PVG",
+    "source": "user-flight-log"
+  },
+  {
+    "id": "history-2015-07-28-mu5313-pvg-can",
+    "sortDate": "2015-07-28",
+    "flight": "MU5313",
+    "airlineCode": "MU",
+    "origin": "PVG",
+    "destination": "CAN",
+    "source": "user-flight-log"
+  },
+  {
+    "id": "history-2015-07-28-cz367-can-sgn",
+    "sortDate": "2015-07-28",
+    "flight": "CZ367",
+    "airlineCode": "CZ",
+    "origin": "CAN",
+    "destination": "SGN",
+    "source": "user-flight-log"
+  },
+  {
+    "id": "history-2017-10-16-vj219-vii-sgn",
+    "sortDate": "2017-10-16",
+    "flight": "VJ219",
+    "airlineCode": "VJ",
+    "origin": "VII",
+    "destination": "SGN",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2017-07-27-vn674-kul-sgn",
+    "sortDate": "2017-07-27",
+    "flight": "VN674",
+    "airlineCode": "VN",
+    "origin": "KUL",
+    "destination": "SGN",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2017-07-19-vn651-sgn-sin",
+    "sortDate": "2017-07-19",
+    "flight": "VN651",
+    "airlineCode": "VN",
+    "origin": "SGN",
+    "destination": "SIN",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2017-04-30-vj263-vdh-sgn",
+    "sortDate": "2017-04-30",
+    "flight": "VJ263",
+    "airlineCode": "VJ",
+    "origin": "VDH",
+    "destination": "SGN",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2017-04-28-vj262-sgn-vdh",
+    "sortDate": "2017-04-28",
+    "flight": "VJ262",
+    "airlineCode": "VJ",
+    "origin": "SGN",
+    "destination": "VDH",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2017-02-03-tg203-bkk-hkt",
+    "sortDate": "2017-02-03",
+    "flight": "TG203",
+    "airlineCode": "TG",
+    "origin": "BKK",
+    "destination": "HKT",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2017-02-01-tg551-sgn-bkk",
+    "sortDate": "2017-02-01",
+    "flight": "TG551",
+    "airlineCode": "TG",
+    "origin": "SGN",
+    "destination": "BKK",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2018-12-02-bl328-pqc-sgn",
+    "sortDate": "2018-12-02",
+    "flight": "BL328",
+    "airlineCode": "BL",
+    "origin": "PQC",
+    "destination": "SGN",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2018-11-30-vn4157-sgn-pqc",
+    "sortDate": "2018-11-30",
+    "flight": "VN4157",
+    "airlineCode": "VN",
+    "origin": "SGN",
+    "destination": "PQC",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2018-07-28-bl233-hui-dli",
+    "sortDate": "2018-07-28",
+    "flight": "BL233",
+    "airlineCode": "BL",
+    "origin": "HUI",
+    "destination": "DLI",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2018-07-22-vn112-sgn-dad",
+    "sortDate": "2018-07-22",
+    "flight": "VN112",
+    "airlineCode": "VN",
+    "origin": "SGN",
+    "destination": "DAD",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2018-04-24-vn1267-vii-sgn",
+    "sortDate": "2018-04-24",
+    "flight": "VN1267",
+    "airlineCode": "VN",
+    "origin": "VII",
+    "destination": "SGN",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2019-09-13-vj360-sgn-dli",
+    "sortDate": "2019-09-13",
+    "flight": "VJ360",
+    "airlineCode": "VJ",
+    "origin": "SGN",
+    "destination": "DLI",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2019-09-03-qh215-han-sgn",
+    "sortDate": "2019-09-03",
+    "flight": "QH215",
+    "airlineCode": "QH",
+    "origin": "HAN",
+    "destination": "SGN",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2019-08-31-qh210-sgn-han",
+    "sortDate": "2019-08-31",
+    "flight": "QH210",
+    "airlineCode": "QH",
+    "origin": "SGN",
+    "destination": "HAN",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2019-07-06-qh1153-vii-sgn",
+    "sortDate": "2019-07-06",
+    "flight": "QH1153",
+    "airlineCode": "QH",
+    "origin": "VII",
+    "destination": "SGN",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2020-12-31-vj126-sgn-han",
+    "sortDate": "2020-12-31",
+    "flight": "VJ126",
+    "airlineCode": "VJ",
+    "origin": "SGN",
+    "destination": "HAN",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2020-12-10-vn266-sgn-han",
+    "sortDate": "2020-12-10",
+    "flight": "VN266",
+    "airlineCode": "VN",
+    "origin": "SGN",
+    "destination": "HAN",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2020-12-04-vn7387-dli-sgn",
+    "sortDate": "2020-12-04",
+    "flight": "VN7387",
+    "airlineCode": "VN",
+    "origin": "DLI",
+    "destination": "SGN",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2020-11-13-vn1381-dli-sgn",
+    "sortDate": "2020-11-13",
+    "flight": "VN1381",
+    "airlineCode": "VN",
+    "origin": "DLI",
+    "destination": "SGN",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2020-11-13-vn1384-sgn-dli",
+    "sortDate": "2020-11-13",
+    "flight": "VN1384",
+    "airlineCode": "VN",
+    "origin": "SGN",
+    "destination": "DLI",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2020-11-10-vn1266-sgn-vii",
+    "sortDate": "2020-11-10",
+    "flight": "VN1266",
+    "airlineCode": "VN",
+    "origin": "SGN",
+    "destination": "VII",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2020-10-23-vn7380-sgn-dli",
+    "sortDate": "2020-10-23",
+    "flight": "VN7380",
+    "airlineCode": "VN",
+    "origin": "SGN",
+    "destination": "DLI",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2020-10-06-vn1384-sgn-dli",
+    "sortDate": "2020-10-06",
+    "flight": "VN1384",
+    "airlineCode": "VN",
+    "origin": "SGN",
+    "destination": "DLI",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2020-09-10-vn1387-dli-sgn",
+    "sortDate": "2020-09-10",
+    "flight": "VN1387",
+    "airlineCode": "VN",
+    "origin": "DLI",
+    "destination": "SGN",
+    "source": "user-flight-log-screenshot"
+  },
+  {
+    "id": "history-2020-09-09-vn1384-sgn-dli",
+    "sortDate": "2020-09-09",
+    "flight": "VN1384",
+    "airlineCode": "VN",
+    "origin": "SGN",
+    "destination": "DLI",
+    "source": "user-flight-log-screenshot"
+  }
+]

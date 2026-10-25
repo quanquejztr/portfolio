@@ -1,0 +1,52 @@
+.original-paper-pass { width: 100%; }
+.original-paper-pass img { display: block; width: 100%; height: auto; max-height: calc(var(--stack-viewport-height, 32rem) - 4rem); object-fit: contain; filter: drop-shadow(0 8px 14px #0004); user-select: none; }
+.wallet-flight-card.has-paper { background: transparent; color: #fff; }
+.wallet-flight-card.has-paper.is-selected { box-shadow: none; }
+.wallet-flight-card.has-paper .wallet-pass-footer { border: 0; padding: .7rem .3rem; background: #002233; border-radius: .3rem; }
+.wallet-pass-enlarged .original-paper-pass img { max-height: none; }
+.original-wallet-pass { padding: .9rem; border-radius: .9rem; background: var(--original-background); color: var(--original-text); font-family: inherit; }
+.original-wallet-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: .5rem; min-height: 2rem; }
+.original-wallet-logo { display: flex; align-items: center; gap: .4rem; min-width: 0; max-width: 60%; }
+.original-wallet-logo img { display: block; width: auto; height: auto; max-width: 8.5rem; max-height: 1.7rem; object-fit: contain; }
+.original-wallet-logo > span { font-size: .75rem; }
+.original-wallet-fields { display: flex; align-items: flex-start; justify-content: space-between; gap: .55rem; margin: .7rem 0 0; }
+.original-wallet-field { min-width: 0; flex: 1; }
+.original-wallet-field > span { display: block; margin-bottom: .15rem; color: var(--original-label); font-size: .52rem; line-height: 1.2; overflow-wrap: anywhere; }
+.original-wallet-field > strong { display: block; font-size: .78rem; font-weight: 400; line-height: 1.25; white-space: pre-wrap; overflow-wrap: anywhere; }
+.original-wallet-header-fields { flex-shrink: 0; justify-content: flex-end; max-width: 52%; margin: 0; text-align: right; }
+.original-wallet-header-fields .original-wallet-field { flex: 0 1 auto; }
+.original-wallet-header-fields .original-wallet-field > strong { font-size: 1rem; }
+.original-wallet-route { position: relative; margin: .8rem 0 .9rem; }
+.original-wallet-primary { margin-top: 0; gap: 2.5rem; }
+.original-wallet-primary .original-wallet-field:last-child { text-align: right; }
+.original-wallet-primary .original-wallet-field > strong { font-size: 2.5rem; font-weight: 300; line-height: 1.1; letter-spacing: -.035em; }
+.original-wallet-route > span { position: absolute; left: 50%; top: 52%; transform: translate(-50%, -50%); font-size: 1.65rem; opacity: .75; }
+.original-wallet-footer-art { display: block; max-width: 100%; max-height: 2rem; margin: .6rem auto 0; object-fit: contain; }
+.original-wallet-back { margin-top: .85rem; padding-top: .65rem; border-top: 1px solid currentColor; }
+.original-wallet-back summary { cursor: pointer; font-size: .75rem; }
+.original-wallet-back dl { margin-top: .75rem; }
+.original-wallet-back dl > div { margin-bottom: .8rem; }
+.original-wallet-back dt { color: var(--original-label); font-size: .65rem; }
+.original-wallet-back dd { margin-top: .2rem; font-size: .75rem; line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 1050px) and (min-width: 701px) {
+  .original-wallet-logo img { max-width: 6.5rem; }
+  .original-wallet-field > strong { font-size: .68rem; }
+}
+
+/* Paper passes retain their real ticket artwork throughout the stack. */
+.wallet-flight-card.paper-pass-in-stack { box-shadow: none; border-radius: 0; }
+.paper-pass-stack-trigger { display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.paper-pass-stack-trigger > img { display: block; width: 100%; height: auto; max-height: calc(var(--stack-viewport-height, 32rem) - 4rem); object-fit: contain; filter: drop-shadow(0 -2px 8px #0004); user-select: none; }
+.paper-pass-stack-trigger:focus-visible { outline: 2px solid #dbcea5; outline-offset: 3px; }
+
+.wallet-pass-focused.has-paper .wallet-pass-footer { justify-content: flex-end; }
+
+.original-pass-open, .digital-pass-stack-trigger { display: block; width: 100%; margin: 0; padding: 0; border: 0; border-radius: .9rem; background: transparent; color: inherit; font: inherit; text-align: left; }
+.original-pass-open { cursor: zoom-in; }
+.digital-pass-stack-trigger { cursor: pointer; }
+.original-pass-open:focus-visible, .digital-pass-stack-trigger:focus-visible { outline: 2px solid #dbcea5; outline-offset: 3px; }
+
+/* Keep the middle pass prominent without raising it above later cards. */
+.flight-pass-list .wallet-flight-card.is-stacked { transform: scaleX(.94); transform-origin: top center; transition: none; }
+.flight-pass-list .wallet-pass-focused { transform: none; transition: none; }
+.flight-pass-list .wallet-pass-focused.has-paper { filter: drop-shadow(0 0 2px #eed7a3) drop-shadow(0 8px 14px #0004); }

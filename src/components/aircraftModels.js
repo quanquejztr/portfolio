@@ -1,0 +1,26 @@
+export const aircraftModels = [
+  {
+    id: 'plain-787-9',
+    label: '787-9',
+    name: 'Boeing 787-9',
+    airline: 'Dreamliner · No livery',
+    src: '/models/boeing-787-9.glb',
+    creator: 'Nobilis 2',
+    credit: 'Nobilis 2',
+    url: 'https://sketchfab.com/3d-models/boeing-787-9-b6711e2e698e4e469675c1154a50b7a3',
+    licenseLabel: 'CC BY 4.0',
+    licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
+  },
+  {
+    id: '0729c1138a8f4186a549abffc1ff1721',
+    provider: 'sketchfab',
+    label: 'A350-1000',
+    name: 'Airbus A350-1000',
+    airline: 'Interactive 3D model',
+    creator: 'hakai315',
+    credit: 'hakai315',
+    url: 'https://sketchfab.com/3d-models/airbus-a350-1000-0729c1138a8f4186a549abffc1ff1721',
+    licenseLabel: null,
+    licenseUrl: null,
+  },
+];

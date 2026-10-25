@@ -1,0 +1,235 @@
+:root {
+  --portfolio-ground: #002233;
+  --portfolio-ink: #fff;
+  --portfolio-muted: #bccdd3;
+  --portfolio-accent: #dbcea5;
+  --portfolio-paper: #fff;
+  --portfolio-surface: #103646;
+  --portfolio-text: 'DM Sans', sans-serif;
+  --portfolio-display: 'Archivo Black', sans-serif;
+  --portfolio-width: min(76rem, calc(100% - clamp(2.5rem, 8vw, 8rem)));
+  --portfolio-title: clamp(2rem, 4.5vw, 4rem);
+  --portfolio-body: 1.125rem;
+  --portfolio-small: .875rem;
+  --portfolio-space: clamp(5rem, 10vw, 9rem);
+}
+.portfolio-body { background: var(--portfolio-ground); color: var(--portfolio-ink); font-family: var(--portfolio-text); }
+.portfolio-body h2 { font-family: var(--portfolio-display); font-size: var(--portfolio-title); line-height: 1.05; letter-spacing: -.025em; text-wrap: balance; }
+.portfolio-body #about { padding: clamp(3rem, 6vw, 6rem) 0 0; }
+.portfolio-body .about-section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(2rem, 5vw, 4rem); width: var(--portfolio-width); margin: 0 auto; }
+.portfolio-body .about-heading { position: static; align-self: start; max-width: 5ch; margin: 0; text-align: left; }
+.portfolio-body .about-heading > span:last-child { font-size: inherit; }
+.portfolio-body .about-content { width: 100%; margin: 0; }
+.portfolio-body .about-copy { font-size: 1.1875rem; line-height: 1.75; }
+.portfolio-body .about-copy p { margin-bottom: 1.5em; text-wrap: pretty; }
+.portfolio-body .about-copy p:last-child { margin-bottom: 0; }
+.portfolio-body .about-section.has-preview { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+.portfolio-body .has-preview .about-heading { position: static; max-width: none; }
+.portfolio-body .aircraft-preview-header { border: 0; padding-top: 0; font-size: var(--portfolio-small); letter-spacing: 0; }
+.portfolio-body .aircraft-preview-header > span { text-transform: none; }
+.portfolio-body .aircraft-preview-header button { min-width: 2.75rem; min-height: 2.75rem; }
+.portfolio-body .team-photo-main, .portfolio-body .team-photo-thumbnails button { border-radius: 0; }
+.portfolio-body .timeline-section, .portfolio-body .tech-stack-section { padding: var(--portfolio-space) 0 0; }
+.portfolio-body .timeline-heading, .portfolio-body .tech-stack-heading { width: var(--portfolio-width); margin: 0 auto; text-align: left; }
+.portfolio-body .timeline-intro, .portfolio-body .timeline-gallery-footer, .portfolio-body .tech-stack-footer { width: var(--portfolio-width); font-size: var(--portfolio-small); color: var(--portfolio-muted); }
+.portfolio-body .timeline-intro { margin-block: 2.5rem 2rem; }
+.portfolio-body .timeline-scroll, .portfolio-body .tech-stack-scroll { padding-inline: max(clamp(1.25rem, 4vw, 4rem), calc((100vw - 76rem) / 2)); }
+.portfolio-body .timeline-label { font-size: 1.125rem; }
+.portfolio-body .timeline-note { color: var(--portfolio-muted); font-size: var(--portfolio-small); }
+.portfolio-body .timeline-gallery-footer { justify-content: flex-end; margin-top: 1.25rem; }
+.portfolio-body .timeline-gallery-controls button { border: 0; background: var(--portfolio-surface); color: var(--portfolio-ink); width: 2.75rem; height: 2.75rem; }
+.portfolio-body .timeline-gallery-controls button:hover:enabled { color: var(--portfolio-accent); }
+.portfolio-body .tech-stack-group + .tech-stack-group { border: 0; }
+.portfolio-body .tech-stack-group h3 { color: var(--portfolio-muted); font-size: 1rem; letter-spacing: 0; text-transform: none; }
+.portfolio-body .tech-stack-footer { justify-content: flex-end; }
+.portfolio-body #projects { padding: var(--portfolio-space) 0 0; }
+.selected-work { width: var(--portfolio-width); margin: 0 auto; }
+.portfolio-section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.portfolio-section-heading h2 { margin: 0; }
+.portfolio-section-heading > a { padding: .75rem 0; color: var(--portfolio-ink); font-size: 1rem; text-decoration: underline; text-underline-offset: .3em; }
+.portfolio-section-heading > a:hover { color: var(--portfolio-accent); }
+.work-composition { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: start; gap: clamp(2rem, 5vw, 4rem); }
+.work-index { display: flex; flex-direction: column; gap: 1.5rem; }
+.work-choice { display: block; width: 100%; padding: .25rem 0; border: 0; background: transparent; color: var(--portfolio-muted); text-align: left; cursor: pointer; font: inherit; transition: color 180ms ease; }
+.work-choice > span:first-child { display: block; font-size: clamp(2rem, 4.1vw, 3.75rem); line-height: 1.1; letter-spacing: -.04em; }
+.work-choice-kind { display: block; margin-top: .75rem; font-size: var(--portfolio-small); }
+.work-choice.is-current, .work-choice:hover { color: var(--portfolio-ink); }
+.work-choice:focus-visible { outline: 2px solid var(--portfolio-accent); outline-offset: .5rem; }
+.work-preview { position: sticky; top: 3rem; min-width: 0; }
+.work-preview-media { overflow: hidden; background: var(--portfolio-paper); }
+.work-preview-media img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; padding: clamp(1.25rem, 3vw, 2.5rem); }
+.work-preview-type { display: grid; place-items: center; aspect-ratio: 4 / 3; padding: 2rem; background: var(--portfolio-surface); }
+.work-preview-type > p { margin: 0; font-size: clamp(2rem, 4vw, 3.75rem); line-height: 1.05; letter-spacing: -.04em; }
+.work-preview-copy { padding-top: 1.75rem; }
+.work-preview-copy h3 { margin: 0 0 .75rem; font-size: 1.5rem; font-weight: 500; line-height: 1.2; }
+.work-preview-copy p { margin: 0; font-size: var(--portfolio-body); line-height: 1.65; text-wrap: pretty; }
+.portfolio-body .flight-archive-section { width: var(--portfolio-width); padding: var(--portfolio-space) 0 0; }
+.portfolio-body .flight-archive-title { margin-bottom: 3rem; text-align: left; }
+.portfolio-body .flight-archive-title h2 { margin: 0; max-width: 20ch; }
+.portfolio-body .flight-archive-split { border: 0; }
+.portfolio-body .flight-pass-panel { border: 0; }
+.portfolio-body .flight-pass-toolbar { padding-top: 0; }
+.portfolio-body .flight-pass-toolbar > div > span { color: var(--portfolio-muted); font-size: .8125rem; }
+.portfolio-body .flight-pass-bottom { font-size: .8125rem; color: var(--portfolio-muted); }
+.portfolio-body .flight-map-panel { background: var(--portfolio-ground); }
+.portfolio-body .flight-map-summary { border: 0; padding-top: 1rem; }
+.portfolio-body .flight-map-summary dt { font-size: .8125rem; color: var(--portfolio-muted); }
+.portfolio-body .flight-map-summary dd { font-size: .875rem; color: var(--portfolio-ink); }
+.portfolio-body .flight-map-controls button { width: 2.25rem; height: 2.25rem; border: 0; border-radius: 50%; background: var(--portfolio-surface); }
+.portfolio-body .future-flights-panel { border: 0; padding-block: .75rem 1rem; }
+.portfolio-body .future-trip-list { gap: .5rem; margin-top: .75rem; }
+.portfolio-body .future-trip-list li { font-size: .875rem; color: var(--portfolio-ink); }
+.portfolio-body .future-trip-status { color: var(--portfolio-muted); font-size: .8125rem; }
+.portfolio-contact { background: var(--portfolio-ground); padding-top: var(--portfolio-space); }
+.portfolio-contact > .section-wave { height: clamp(5rem, 14vw, 12rem); object-fit: fill; }
+.contact-composition { display: flex; flex-direction: column; gap: clamp(3rem, 7vw, 6rem); padding: clamp(3rem, 6vw, 6rem) max(clamp(1.25rem, 4vw, 4rem), calc((100vw - 76rem) / 2)); background: var(--portfolio-paper); color: var(--portfolio-ground); font-family: var(--portfolio-text); }
+.contact-intro { display: flex; justify-content: space-between; align-items: baseline; gap: 2rem; }
+.contact-intro h2 { margin: 0; font-family: var(--portfolio-display); font-size: var(--portfolio-title); line-height: 1.05; letter-spacing: -.025em; }
+.contact-intro p { max-width: 26ch; margin: 0; font-size: var(--portfolio-body); line-height: 1.6; }
+.contact-email { display: block; width: fit-content; max-width: 100%; padding-bottom: .1em; font-size: clamp(2rem, 5.7vw, 5.5rem); font-weight: 400; line-height: 1.2; letter-spacing: -.055em; }
+.contact-email:hover { text-decoration: underline; text-underline-offset: .12em; text-decoration-thickness: .04em; }
+.contact-bottom { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; align-items: start; }
+.contact-message summary { width: fit-content; min-height: 2.75rem; padding-block: .5rem; cursor: pointer; font-size: var(--portfolio-body); }
+.contact-message-fields { display: grid; gap: .75rem; padding-top: 1.25rem; max-width: 32rem; }
+.contact-message-fields label { font-size: 1rem; }
+.contact-message-fields input, .contact-message-fields textarea { width: 100%; padding: .75rem; border: 0; background: #eef2f3; color: var(--portfolio-ground); font: 1rem/1.5 var(--portfolio-text); }
+.contact-message-fields textarea { resize: vertical; }
+.contact-draft-link { width: fit-content; padding: .875rem 1.25rem; margin-top: .5rem; background: var(--portfolio-ground); color: var(--portfolio-ink); font-size: 1rem; }
+.contact-links { display: grid; justify-items: end; gap: 1rem; font-size: 1rem; line-height: 1.5; }
+.contact-socials { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.contact-links a:hover { text-decoration: underline; text-underline-offset: .25em; }
+.portfolio-footer { display: flex; justify-content: space-between; gap: 1.5rem; padding: 2rem max(clamp(1.25rem, 4vw, 4rem), calc((100vw - 76rem) / 2)); background: var(--portfolio-paper); color: var(--portfolio-ground); font: var(--portfolio-small)/1.5 var(--portfolio-text); }
+@media (max-width: 800px) {
+  .portfolio-body .about-section, .portfolio-body .about-section.has-preview { display: block; }
+  .portfolio-body .about-heading { position: static; max-width: none; }
+  .portfolio-body .about-content { margin-top: 2rem; }
+  .portfolio-body .about-copy { font-size: var(--portfolio-body); }
+  .work-composition { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+  .work-index { gap: 1.25rem; }
+  .work-preview { position: static; }
+  .work-choice > span:first-child { font-size: clamp(2rem, 5vw, 2.75rem); }
+  .work-preview-media img, .work-preview-type { aspect-ratio: 8 / 5; }
+  .contact-intro { align-items: flex-start; flex-direction: column; gap: 1.5rem; }
+}
+@media (max-width: 700px) {
+  .portfolio-body .flight-right-column { height: auto; grid-template-rows: auto auto; border: 0; }
+  .portfolio-body .flight-pass-panel { padding-top: 2rem; }
+  .portfolio-body .flight-pass-toolbar { padding-right: 0; }
+  .portfolio-body .flight-pass-toolbar > div { flex-wrap: wrap; gap: .5rem; }
+  .portfolio-body .flight-map-controls button { width: 2.75rem; height: 2.75rem; }
+  .portfolio-body .flight-archive-split { row-gap: 1rem; }
+}
+@media (max-width: 600px) {
+  .portfolio-body .timeline-intro { gap: .75rem; }
+  .portfolio-body .timeline-intro > span:last-child { max-width: 28ch; }
+  .portfolio-section-heading { gap: 1rem; }
+  .contact-email > span { display: block; }
+  .contact-email { font-size: clamp(2rem, 8vw, 3rem); }
+  .contact-bottom { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+  .contact-links { justify-items: start; }
+  .contact-socials { gap: 1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .work-choice { transition: none; }
+}
+
+.work-source-link { display: inline-block; padding: .75rem 0; margin-top: .75rem; font-size: 1rem; text-decoration: underline; text-underline-offset: .3em; }
+.work-source-link:hover { color: var(--portfolio-accent); }
+.original-wallet-route svg { display: block; width: 1.5rem; height: 1.5rem; }
+@media (max-width: 600px) { .intro-rotator-list { font-size: max(1rem, 3.3vw); } }
+@media (prefers-reduced-motion: no-preference) {
+  .portfolio-arriving { animation: portfolio-rise 650ms cubic-bezier(.16, 1, .3, 1); }
+  .work-preview-media.portfolio-arriving { animation-name: portfolio-picture; animation-duration: 900ms; }
+}
+@keyframes portfolio-rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes portfolio-picture { from { opacity: .75; transform: scale(.97); } to { opacity: 1; transform: scale(1); } }
+
+.work-single { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: center; }
+.work-single .work-preview-copy { padding-top: 0; }
+.work-single .work-preview-copy h3 { font-size: clamp(1.5rem, 2.7vw, 2.5rem); letter-spacing: -.03em; }
+.work-preview-screenshot { margin: 0; }
+.work-preview-screenshot img { padding: 0; aspect-ratio: 8 / 5; }
+.work-preview-copy .work-map-credit { margin-top: 1rem; color: var(--portfolio-muted); font-size: .8125rem; }
+.work-map-credit a { text-decoration: underline; text-underline-offset: .2em; }
+@media (max-width: 800px) { .work-single { grid-template-columns: minmax(0, 1fr); } }
+
+.contact-honeypot { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.contact-send-button { width: fit-content; min-height: 2.75rem; padding: .875rem 1.25rem; margin-top: .5rem; border: 0; border-radius: 0; background: var(--portfolio-ground); color: var(--portfolio-ink); font: 1rem/1.5 var(--portfolio-text); cursor: pointer; }
+.contact-send-button:disabled { opacity: .65; cursor: wait; }
+.contact-message-fields .contact-form-status { margin: .5rem 0 0; font-size: 1rem; line-height: 1.5; }
+
+/* Restore the original writing-paper message box; keep the working Netlify form. */
+.contact-original { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); align-items: center; gap: clamp(2rem, 5vw, 4rem); }
+.contact-original-main { min-width: 0; }
+.contact-original h2 { margin: 0 0 1.5rem; font: clamp(1.5rem, 3vw, 3rem)/1.1 var(--portfolio-display); text-align: center; }
+.original-message-box { position: relative; min-height: 25rem; padding: 2.5rem 2rem 11rem; border-radius: .5rem; background: #f2f5f3; color: #111; box-shadow: 0 18px 35px -22px #00223366; transition: transform 500ms ease; }
+.original-message-box:hover { transform: translate(-.25rem, -.25rem); }
+.original-message-prompt { max-width: 42ch; margin: 0 auto 1.25rem; text-align: center; text-transform: uppercase; font-size: .875rem; line-height: 1.5; }
+.original-message-box > textarea { display: block; width: 85%; min-height: 8rem; margin: 0 auto; padding: .625rem; border: 0; background: transparent; color: #111; font: 1rem/1.6 var(--portfolio-text); letter-spacing: 1px; text-align: center; resize: vertical; }
+.original-message-box > textarea::placeholder { color: #5b6460; opacity: 1; }
+.original-message-sender { position: absolute; right: 1rem; bottom: 1rem; display: grid; gap: .5rem; width: 12rem; }
+.original-message-sender input { width: 100%; min-height: 2.75rem; padding: .5rem; border: 1px solid #1113; border-radius: .5rem; background: transparent; color: #111; text-align: center; font: .875rem/1.4 var(--portfolio-text); }
+.original-message-sender .contact-send-button { width: 100%; margin: 0; padding: .5rem; border-radius: .5rem; font-size: .875rem; opacity: 0; pointer-events: none; transform: translateY(.5rem); transition: opacity 300ms ease, transform 300ms ease; }
+.original-message-box:focus-within .contact-send-button, .original-message-box:has(input[placeholder]:not(:placeholder-shown)) .contact-send-button, .original-message-box:has(.contact-form-status) .contact-send-button { opacity: 1; pointer-events: auto; transform: none; }
+.original-message-box :focus-visible { outline: 2px solid var(--portfolio-ground); outline-offset: 3px; }
+.original-message-box .contact-form-status { margin: 1.25rem 0 0; font-size: .875rem; line-height: 1.5; }
+.contact-original .contact-links { justify-items: start; overflow-wrap: anywhere; }
+@media (max-width: 800px) {
+  .contact-original { grid-template-columns: minmax(0, 1fr); }
+  .original-message-box { padding-inline: 1rem; }
+  .original-message-box > textarea { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .original-message-box, .original-message-sender .contact-send-button { transition: none; } .original-message-box:hover { transform: none; } }
+
+.original-message-box > textarea:focus, .original-message-box > textarea:focus-visible { outline: none; box-shadow: none; }
+
+/* Keep the wish altar beneath the complete biography and any open preview. */
+.portfolio-body .about-section { position: relative; }
+.wish-altar-slot { position: absolute; top: calc(100% + 1.5rem); left: 0; width: 100%; height: 0; }
+.wish-altar-slot .wish-scene { top: 0; right: 0; }
+.portfolio-body .about-section:has(.wish-scene) { margin-bottom: clamp(7rem, 10vw, 9rem); }
+
+/* Animate a stable frame instead of switching the outer grid's track count. */
+@media (min-width: 801px) {
+  .portfolio-body .about-section, .portfolio-body .about-section.has-preview {
+    --about-gap: clamp(2rem, 5vw, 4rem);
+    --about-ease: cubic-bezier(.22, 1, .36, 1);
+    display: block;
+    padding-top: 0;
+    transition: padding-top 750ms var(--about-ease);
+  }
+  .portfolio-body .about-section.has-preview { padding-top: calc(var(--portfolio-title) * 1.05 + 2.5rem); }
+  .portfolio-body .about-heading, .portfolio-body .has-preview .about-heading {
+    position: absolute; top: 0; left: 0; max-width: 5ch;
+    transition: max-width 750ms var(--about-ease);
+  }
+  .portfolio-body .has-preview .about-heading { max-width: 100%; }
+  .portfolio-body .about-content {
+    width: calc(66.666667% - var(--about-gap) * .666667);
+    margin-left: calc(33.333333% + var(--about-gap) * .666667);
+    transition: width 750ms var(--about-ease), margin-left 750ms var(--about-ease), grid-template-columns 750ms var(--about-ease);
+  }
+  .portfolio-body .has-preview .about-content { width: 100%; margin-left: 0; }
+  .portfolio-body .aircraft-preview { transition: opacity 180ms ease, transform 750ms var(--about-ease), margin-left 750ms var(--about-ease), max-height 750ms var(--about-ease), padding-top 750ms var(--about-ease), visibility 0s 750ms; }
+  .portfolio-body .has-aircraft .aircraft-preview { transition: opacity 400ms ease 200ms, transform 750ms var(--about-ease), margin-left 750ms var(--about-ease), max-height 750ms var(--about-ease), padding-top 750ms var(--about-ease), visibility 0s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-body .about-section, .portfolio-body .about-heading, .portfolio-body .about-content, .portfolio-body .aircraft-preview { transition: none; }
+}
+
+/* Use the same content frame and type scale as the neighboring sections. */
+.portfolio-body .flight-archive-title { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.portfolio-body .flight-archive-split { width: 100%; margin-inline: 0; column-gap: clamp(1.5rem, 3vw, 3rem); }
+.portfolio-body .flight-pass-toolbar { padding-right: 0; }
+.portfolio-body .flight-pass-list { width: calc(100% - .5rem); max-width: 32rem; }
+.portfolio-body .flight-pass-toolbar h3, .portfolio-body .future-flights-panel h3 { font-size: 1.125rem; line-height: 1.5; }
+.portfolio-body .future-trip-list li { font-size: 1rem; line-height: 1.6; }
+.portfolio-body .future-trip-status { font-size: .875rem; }
+.portfolio-body .flight-map-summary, .portfolio-body .future-flights-panel { padding-inline: 0; }
+@media (max-width: 700px) {
+  .portfolio-body .flight-archive-split { column-gap: 0; }
+}
+
+.hero-nav { width: var(--portfolio-width); margin-inline: auto; padding-inline: 0; gap: .25rem clamp(.25rem, 2vw, 2rem); }
+.hero-nav button { padding: .65rem clamp(.5rem, 1.2vw, 1.25rem); white-space: nowrap; }
+@media (max-width: 640px) { .hero-nav { justify-content: center; column-gap: .25rem; } .hero-nav button { padding: .6rem .65rem; } }

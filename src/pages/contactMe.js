@@ -1,84 +1,54 @@
-import { useState } from "react"
-const ContactMe = () => {
+import { useRef, useState } from 'react';
+import { submitContact } from './contactSubmission';
 
-    const [showSendButton, setShowSendButton] = useState(false);
-    const [senderInfo, setSenderInfo] = useState('');
-    const [message, setMessage] = useState('');
+export default function ContactMe() {
+  const [status, setStatus] = useState('idle');
+  const pending = useRef(false);
+  const email = 'stephenluong24@gmail.com';
+  const handleSubmit = async event => {
+    event.preventDefault();
+    if (pending.current) return;
+    const form = event.currentTarget;
+    if (!form.reportValidity()) return;
+    pending.current = true;
+    setStatus('sending');
+    try {
+      const result = await submitContact(form);
+      if (result.preview) setStatus('preview');
+      else { setStatus('success'); form.reset(); }
+    } catch {
+      setStatus('error');
+    } finally {
+      pending.current = false;
+    }
+  };
 
-    const recipientEmail = 'stephenluong24@gmail.com';
-
-    const handleEmailFocus = () => {
-        setShowSendButton(true);
-    };
-
-    const handleEmailBlur = () => {
-        if (senderInfo === '' && message === '') {
-            setShowSendButton(false);
-        }
-    };
-    const handleSendMessage = () => {
-        if (message.trim() === '' || senderInfo.trim() === '') {
-            alert('Please write your thoughts and provide your name/email.');
-            return;
-        }
-
-        // Construct the mailto link
-        const subject = encodeURIComponent(`Message from your website by ${senderInfo}`);
-        const body = encodeURIComponent(message);
-        const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
-
-        // Open the default email client
-        window.location.href = mailtoLink;
-
-        // Optionally, clear the form fields after sending
-        setMessage('');
-        setSenderInfo('');
-        setShowSendButton(false); // Hide the button after sending
-    };
-
-    return(
-    <>
-        <div className="h-auto w-full flex flex-col items-center mb-5">
-            <span className="text-white font-dm-sans text-base sm:text-lg md:text-xl">
-                <span className="text-white hover:text-black text-2xl sm:text-4xl md:text-5xl hover:bg-white font-archivo translate-x-full transition-colors duration-300 ">
-                CONNECT WITH ME
-                </span>
-            </span>
+  return <section id="contact" className="contact-composition contact-original" aria-labelledby="contact-heading">
+    <div className="contact-original-main">
+      <h2 id="contact-heading" className="font-archivo">CONNECT WITH ME</h2>
+      <form id="original-message-box" className="original-message-box" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit} aria-label="Send Cuong a message" aria-busy={status === 'sending'}>
+        <input type="hidden" name="form-name" value="contact" />
+        <p className="contact-honeypot" aria-hidden="true"><label>Leave this field empty<input name="bot-field" tabIndex={-1} autoComplete="off" /></label></p>
+        <p className="original-message-prompt">Have something on your mind? Write it down and send to me, I'll read it and reply asap</p>
+        <textarea id="contact-message" name="message" aria-label="Your message" rows="5" required maxLength={10000} placeholder="Write your thoughts here and send it to me. I would love to hear your thoughts!" />
+        <div className="original-message-sender">
+          <button type="submit" className="contact-send-button" disabled={status === 'sending'}>{status === 'sending' ? 'Sending…' : 'send to Cuong'}</button>
+          <input id="contact-sender" name="name" aria-label="Your name" autoComplete="name" required maxLength={120} placeholder="your name" />
+          <input id="contact-email" name="email" aria-label="Your email" type="email" autoComplete="email" required maxLength={254} placeholder="your email" />
         </div>
-        <div id="ask" class="relative bg-[#F2F5F3] h-lvh sm:h-[40vh] w-full flex flex-col items-center rounded-lg shadow-2xl z-20 hover:translate-y-[-0.25rem] hover:translate-x-[-0.25rem] hover:shadow-3xl transition-all duration-500 ease-in-out">
-            <div class="h-[90%] md:h-[45%] w-[90%] flex flex-col items-center mt-[3rem] mx-[2rem]">
-                <div class="flex flex-row gap-[0.1rem] w-[80%] relative justify-center">
-                    <div className="uppercase text-xs sm:text-sm md:text-base font-roboto text-center">
-                        
-                        Have something on your mind? Write it down and send to me, I'll read it and reply asap
-                    </div>
-                </div>
-                <textarea id="message" rows="4" className="bg-transparent p-2.5 w-[65%] h-[70%] text-xs sm:text-sm md:text-base text-[#111] focus:outline-none text-center font-roboto tracking-[1px] resize-none " placeholder="Write your thoughts here and send it to me. I would love to hear your thoughts!"></textarea>
-            </div>
-            <textarea
-                id="email"
-                cols="24"
-                rows="1"
-                className="absolute bottom-[1rem] right-[1rem] w-[10rem] border border-[1px] border-[#111] border-opacity-20 p-2 text-[#111] text-xs sm:text-sm md:text-base rounded-lg focus:outline-none text-center resize-none"
-                placeholder="your name / email"
-                value={senderInfo}
-                onChange={(e) => setSenderInfo(e.target.value)}
-                onFocus={handleEmailFocus}
-                onBlur={handleEmailBlur}
-            ></textarea>
-
-            <button
-                className={`absolute right-[1rem] w-[10rem] p-2 bg-darkBlue text-white border border-1px border-[#444444] text-[0.7rem] rounded-lg focus:outline-none text-center transition-all duration-300 ease-in-out transform
-                    ${showSendButton ? 'bottom-[4rem] opacity-100' : 'bottom-[1rem] opacity-0 pointer-events-none'}
-                `}
-                type="button"
-                onClick={handleSendMessage}
-            >
-                send to Cuong
-            </button>
-            </div>
-    </>
-    )
+        {status === 'success' && <p className="contact-form-status" role="status">Thanks—your message has been submitted.</p>}
+        {status === 'preview' && <p className="contact-form-status" role="status">Please use the published site to send this message, or email me directly.</p>}
+        {status === 'error' && <p className="contact-form-status" role="alert">Your message couldn’t be sent. Please try again or email me directly.</p>}
+      </form>
+    </div>
+    <div className="contact-links">
+      <a href={`mailto:${email}`} aria-label={`Email Cuong at ${email}`}>{email}</a>
+      <a href="tel:+18135530268">(+1) 813-553-0268</a>
+      <div className="contact-socials">
+        <a href="https://www.linkedin.com/in/stephenluong04/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.instagram.com/ltcunnn/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/ltcunnn/" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
+    </div>
+  </section>;
 }
-
-export default ContactMe
